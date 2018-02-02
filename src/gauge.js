@@ -87,6 +87,7 @@
       gaugeClass: "gauge",
       showValue: true,
       gaugeColor: null,
+      labelOffset: {x: 0, y: 0},
       label: function(val) {return Math.round(val);}
     };
 
@@ -207,6 +208,7 @@
           gaugeValueElem,
           gaugeValuePath,
           label = opts.label,
+          labelOffset = opts.labelOffset,
           instance;
 
       if(startAngle < endAngle) {
@@ -230,8 +232,8 @@
 
       function initializeGauge(elem) {
         gaugeValueElem = svg("text", {
-          x: 50,
-          y: 50,
+          x: 50 + labelOffset.x,
+          y: 50 + labelOffset.y,
           fill: "#999",
           "class": valueTextClass,
           "font-size": "100%",
